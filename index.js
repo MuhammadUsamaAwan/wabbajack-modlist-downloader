@@ -33,4 +33,8 @@ for (const mod of mods) {
     responseType: 'stream',
   });
   modResponse.data.pipe(fs.createWriteStream(`mods/${mod.name}`));
+  await new Promise((resolve, reject) => {
+    modResponse.data.on('end', resolve);
+    modResponse.data.on('error', reject);
+  });
 }
