@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const modlist = JSON.parse(fs.readFileSync('modlist.json'));
 
-const mods = modlist.Archives.filter((a) => a.State.$type === 'NexusDownloader, Wabbajack.Lib').map((a) => ({
+const mods = modlist.Archives.filter(a => a.State.$type === 'NexusDownloader, Wabbajack.Lib').map(a => ({
   name: a.Name,
   gameName: a.State.GameName,
   modId: a.State.ModID,
